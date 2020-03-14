@@ -6,6 +6,7 @@
 
 <script>
 export default {
+    name:"Login",
     data() {
         return {
             isim1:"ayşe",
