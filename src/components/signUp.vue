@@ -1,24 +1,28 @@
- <template>
+<template>
   <div>
     <v-container>
       <v-row align="center" justify="center">
-        <v-col cols="12">
-          <img src="../LOGO.png" class="rounded mx-auto d-block" id="logo" />
+        <v-col cols="12" class="text-center pt-4">
+          <h5 class="pt-5">E-PNR'e Katıl</h5>
+          <h2 class="pt-5">Hesabınızı Oluşturun</h2>
         </v-col>
 
-        <v-col cols="12" class="text-center">
-          <h5>E-PNR Giriş Yap</h5>
-        </v-col>
-
-        <v-col cols="12" sm="4" id="loginForm" class="logIn">
+        <v-col cols="12" sm="5" class="pt-5">
           <v-form ref="form" v-model="valid" :lazy-validation="lazy">
             <v-text-field
-              class="pt-5"
+              v-model="name"
+              :rules="nameRules"
+              outlined
+              label="Kullanıcı Adınız"
+              color="#EA2027"
+            ></v-text-field>
+
+            <v-text-field
               v-model="email"
               :rules="emailRules"
               label="E-Mail Adresiniz"
-              required
               outlined
+              required
               color="#EA2027"
             ></v-text-field>
 
@@ -29,32 +33,18 @@
               :type="show1 ? 'text' : 'password'"
               name="input-10-1"
               label="Şifreniz"
+              hint="En az 8 karakter girin"
+              counter
               outlined
               color="#EA2027"
               required
               @click:append="show1 = !show1"
             ></v-text-field>
 
-            <a
-              href="#"
-              id="passwordHelp"
-              class="form-text text-muted float-right"
-              @click.prevent="forgot"
-            >
-              <small>Şifremi unuttum</small>
-            </a>
-
             <v-col cols="12" class="p-5">
-              <v-btn color class="mr-1 white--text" id="loginBtn" @click="reset">GİRİŞ YAP</v-btn>
+              <v-btn color large class="mr-1 white--text" id="signupBtn" @click="reset">Üye Ol</v-btn>
             </v-col>
           </v-form>
-        </v-col>
-
-        <v-col cols="12" class="text-center pt-5">
-          <h5>Hesabınız yok mu?</h5>
-          <span>
-            <a href="signUp" class="uyeLink">Üye Olun!</a>
-          </span>
         </v-col>
       </v-row>
     </v-container>
@@ -63,7 +53,6 @@
 
 <script>
 export default {
-  name: "Login",
   data() {
     return {
       show1: false,
@@ -73,22 +62,18 @@ export default {
       password: "Password",
       rules: {
         required: value => !!value || "Required.",
+        min: v => v.length >= 8 || "Min 8 characters",
         emailMatch: () => "The email and password you entered don't match"
       }
     };
   }
 };
 </script>
-
 <style scoped>
-#loginBtn {
+#signupBtn {
   position: absolute;
   right: 25%;
   background-color: #cc0e00;
   width: 50%;
-}
-
-.uyeLink {
-  color: #cc0e00;
 }
 </style>
