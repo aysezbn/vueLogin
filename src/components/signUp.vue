@@ -14,7 +14,7 @@
               :rules="nameRules"
               outlined
               label="Kullanıcı Adınız"
-              color="#EA2027"
+              color="#cc0e00"
             ></v-text-field>
 
             <v-text-field
@@ -23,7 +23,7 @@
               label="E-Mail Adresiniz"
               outlined
               required
-              color="#EA2027"
+              color="#cc0e00"
             ></v-text-field>
 
             <v-text-field
@@ -36,7 +36,7 @@
               hint="En az 8 karakter girin"
               counter
               outlined
-              color="#EA2027"
+              color="#cc0e00"
               required
               @click:append="show1 = !show1"
             ></v-text-field>

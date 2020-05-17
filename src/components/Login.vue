@@ -19,7 +19,7 @@
               label="E-Mail Adresiniz"
               required
               outlined
-              color="#EA2027"
+              color="#cc0e00"
             ></v-text-field>
 
             <v-text-field
@@ -30,7 +30,7 @@
               name="input-10-1"
               label="Şifreniz"
               outlined
-              color="#EA2027"
+              color="#cc0e00"
               required
               @click:append="show1 = !show1"
             ></v-text-field>
